@@ -121,7 +121,7 @@ angular.module('newTicApp')
 				
 				else
 					$scope.yWin = true;
-				
+
 				}
 			if(tic[x][0].value == tic[x][1].value &&
 				tic[x][1].value == tic[x][2].value &&
@@ -161,7 +161,6 @@ angular.module('newTicApp')
 		// resets game
 		$scope.resetGame = function() {
 			var tic = $scope.games[$scope.gameId].ticTacToe;
-
 			for(var r in tic)
 				for(var c in tic[r]) 
 					tic[r][c].value = '';
@@ -171,8 +170,10 @@ angular.module('newTicApp')
 			$scope.showDetails = false;
 		};
 
-		// $scope.yourTurn = function() {
-		// 	if()
-		// }
+		$scope.showTurn = function() {
+
+			if($scope.games[$scope.gameId].turn)
+				$scope.showTurn = true;
+		};
 //http://tic-tac-bro.herokuapp.com/#/
 });
