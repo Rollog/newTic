@@ -7,6 +7,7 @@ angular.module('newTicApp', ["firebase"])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      // .when('/games/:gameId')
       .otherwise({
         redirectTo: '/'
       });

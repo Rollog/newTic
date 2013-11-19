@@ -1,26 +1,33 @@
-<div id="start" ng-click="showDetails = !showDetails" ng-hide="showDetails">START</div>
+<div id="outerContainer">
 
-<div id="container" ng-show="showDetails">
+  <div id="start" ng-click="newGame()" ng-hide="games[gameId].showDetails">NEW GAME</div>
 
-	<div ng-repeat="row in games[gameId].ticTacToe">   <!-- rows -->
-	  <div ng-class="{box:true,topLine:$parent.$index != 0,leftLine:$index != 0}" ng-repeat="cell in row" ng-click="clickBox(cell)">{{cell.value}}</div>  <!-- individual cells -->
-	  
-	  <div class="clearfix"></div>
+  <!-- <header ng-show="showDetails">TicTacs&Toes</header> -->
 
-	<div id="plyMsg" class="playMessage" ng-show="xWin">
-      <h3>X Won!</h3>
-    </br>
-      <button id="playAgain" ng-click="resetGame()">Play Again!</button>
-    </div>
+  <div id="container" ng-show="games[gameId].showDetails">
 
-    <div id="plyMsg2" class="playMessage" ng-show="yWin">
-      <h3>O Won!</h3>
-    </br>
-      <button id="playAgain" ng-click="resetGame()">Play Again!</button>
-    </div>  
-    <!-- win  messages show after ng show is true -->
+    <div id="waiting" ng-show="games[gameId].waiting">WAITING <br>FOR<br>OPPONENT</div>
+
+  	<div ng-repeat="row in games[gameId].ticTacToe">   <!-- rows -->
+  	  <div ng-class="{box:true,topLine:$parent.$index != 0,leftLine:$index != 0}" ng-repeat="cell in row" ng-click="clickBox(cell)">{{cell.value}}</div>  <!-- individual cells -->
+  	  
+  	  <div class="clearfix"></div>
+
+  	<div id="plyMsg" class="playMessage" ng-show="games[gameId].xWin">
+        <h3>X Won!</h3>
+      </br>
+        <button id="playAgain" ng-click="resetGame()">Play Again!</button>
+      </div>
+
+      <div id="plyMsg2" class="playMessage" ng-show="games[gameId].yWin">
+        <h3>O Won!</h3>
+      </br>
+        <button id="playAgain" ng-click="resetGame()">Play Again!</button>
+      </div>  
+      <!-- win  messages show after ng show is true -->
+
+  </div>
+
+
+  </div>
 </div>
-
-</div>
-
-<div id="showTurn" ng-show="showTurn">YOUR TURN</div>
